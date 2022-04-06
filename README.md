@@ -7,7 +7,7 @@
 
 ## Instructions
 
-### Part 1: Importing data
+### Part 1: Importing datas
 Directions:
 
 * In DataGrip, [connect to your local mysql instance](https://www.jetbrains.com/help/idea/connecting-to-a-database.html#mysql)
