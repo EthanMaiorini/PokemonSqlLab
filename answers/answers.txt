@@ -989,3 +989,23 @@ mysql> select pokemon_id, count(pokemon_id)= 1 from pokemon_trainer group by pok
 |        656 |                    1 |
 +------------+----------------------+
 13 rows in set (0.04 sec)
+
+mysql> select pokemons.name as 'Pokemon Name', trainers.trainername as 'Trainer Name', pokemon_trainer.pokelevel as Level,primary_type.name as 'Primary
+Type',secondary_type.name as 'Secondary Type'  from types as primary_type join pokemons on primary_type.id = pokemons.primary_type join pokemon_trainer
+on pokemon_trainer.pokemon_id = pokemons.id join types as secondary_type on secondary_type.id = pokemons.secondary_type join trainers on pokemon_trainer
+.trainerID = trainers.trainerID order by Level desc limit 10;
++--------------+----------------+-------+--------------+----------------+
+| Pokemon Name | Trainer Name   | Level | Primary Type | Secondary Type |
++--------------+----------------+-------+--------------+----------------+
+| Swampert     | Teacher Kaede  |   100 | Water        | Ground         |
+| Blaziken     | Teacher Kaede  |   100 | Fire         | Fighting       |
+| Salamence    | Teacher Kaede  |   100 | Dragon       | Flying         |
+| Gardevoir    | Teacher Kaede  |   100 | Psychic      | Fairy          |
+| Lanturn      | Teacher Lagron |   100 | Water        | Electric       |
+| Jumpluff     | Teacher Lagron |   100 | Grass        | Flying         |
+| Latias       | Worker Bomber  |   100 | Dragon       | Psychic        |
+| Crobat       | Worker Bomber  |   100 | Poison       | Flying         |
+| Shedinja     | Worker Bomber  |   100 | Bug          | Ghost          |
+| Jirachi      | Worker Bomber  |   100 | Steel        | Psychic        |
++--------------+----------------+-------+--------------+----------------+
+10 rows in set (0.08 sec)
